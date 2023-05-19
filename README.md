@@ -9,9 +9,34 @@ JPA
 
 ## 1. Entity
 
+### Entity 
+
+a lightweight persistent domain object
+
+```java
+@Entity
+@NoArgsConstructor // must have no-arg constructor
+@Getter
+@Setter
+public class User{
+    
+}
+```
+
+### Entity Relationships
+
+https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html#a516
+
 ---
 
 ## 2. EntityManager
+
+### Entity Instance's life cycle
+
+- new : entity with no persistent identity. not yet associated with a persistence context
+- managed : entity with persistent identity & associated with a persistence context
+- detached : entity with persistent identity, but not associated with a persistence context
+- removed : entity with persistent identity & associated with a persistence context, but will be removed from the database upon transaction commit
 
 ---
 
