@@ -27,6 +27,18 @@ public class User{
 
 https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html#a516
 
+**Bidirectional vs Unidirectional**
+
+- Bidirectional : has both an owning side & inverse(non-owning) side
+- Unidirectional : has only an owning side
+
+**Relationships**
+
+- one-to-one
+- one-to-many
+- many-to-one
+- many-to-many
+
 ---
 
 ## 2. EntityManager

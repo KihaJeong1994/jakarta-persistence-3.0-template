@@ -1,9 +1,7 @@
 package com.example.jpatemplate.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.jpatemplate.address.Address;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,4 +17,7 @@ public class Customer {
     private Long id;
 
     private String customerId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 }
