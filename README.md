@@ -52,8 +52,15 @@ https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.h
     - inverse side : `One`. mappedBy
     - *cascade=REMOVE* should not be applied
   - many-to-many
+    - there is a join table that is named A_B(owner name first) 
     - *cascade=REMOVE* should not be applied 
 - Unidirectional : has only an owning side
+  - one-to-one
+  - one-to-many
+    - there is a join table that is named A_B(owner name first)
+  - many-to-one
+  - many-to-many
+    - there is a join table that is named A_B(owner name first)
 - `cascade` : propagate the cascadable operation to the associated entity
   - persist
   - merge
@@ -64,6 +71,28 @@ https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.h
   - the entity is removed when it is removed from relationship(one-to-one, one-to-many)
   - in hibernate, `CascadeType.PERSIST` is necessary to use orphanRemoval=true option
 
+**JPA itself does not ensure the consistency of runtime relationships**
+>Note that it is the application that bears responsibility for maintaining the consistency of runtime relationships—for example, for insuring that the “one” and the “many” sides of a bidirectional relationship are consistent with one another when the application updates the relationship at runtime.
+
+```java
+@OneToMany(mappedBy = "customer"
+        ,cascade = CascadeType.PERSIST // hibernate need CascadeType.PERSIST option for orphanRemoval since persist on Customer will propagate the persist operation to the Account
+        , orphanRemoval = true)
+private List<Account> accounts ;
+
+
+// method to manage bidirectional relationship between entity
+public void addAccount(Account account){
+    this.accounts.add(account);
+    account.setCustomer(this);
+}
+
+// method to manage bidirectional relationship between entity
+public void removeAccount(Account account){
+    this.accounts.remove(account);
+    account.setCustomer(null);
+}
+```
 
 
 ---

@@ -23,7 +23,7 @@ public class Customer {
     @OneToOne(cascade = CascadeType.PERSIST,orphanRemoval = true) // insert&remove address when insert&remove customer
     private Address address;
 
-    @OneToMany(mappedBy = "customer"
+    @OneToMany(mappedBy = "customer" // field name of Customer in owning side
             ,cascade = CascadeType.PERSIST // hibernate need CascadeType.PERSIST option for orphanRemoval since persist on Customer will propagate the persist operation to the Account
             , orphanRemoval = true)
     private List<Account> accounts ;
