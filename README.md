@@ -27,17 +27,44 @@ public class User{
 
 https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html#a516
 
-**Bidirectional vs Unidirectional**
-
-- Bidirectional : has both an owning side & inverse(non-owning) side
-- Unidirectional : has only an owning side
-
 **Relationships**
 
 - one-to-one
 - one-to-many
 - many-to-one
 - many-to-many
+
+**Bidirectional vs Unidirectional**
+
+- Bidirectional : has both an owning side & inverse(non-owning) side
+  - the inverse side of a bidirectional relationship must refer to its owning side by using `mappedBy` element
+  - owning side : determines the updates to the relationship in the database
+  - one-to-one
+    - owning side : contains foreign key
+    - inverse side : mappedBy
+    - `orphanRemoval` option is possible
+  - one-to-many
+    - owning side : `Many` side must be owning side -> no mappedBy
+    - inverse side : `One`. mappedBy
+    - `orphanRemoval` option is possible
+  - many-to-one
+    - owning side : `Many` side must be owning side -> no mappedBy
+    - inverse side : `One`. mappedBy
+    - *cascade=REMOVE* should not be applied
+  - many-to-many
+    - *cascade=REMOVE* should not be applied 
+- Unidirectional : has only an owning side
+- `cascade` : propagate the cascadable operation to the associated entity
+  - persist
+  - merge
+  - remove
+  - refresh
+  - detach
+- `orphanRemoval` 
+  - the entity is removed when it is removed from relationship(one-to-one, one-to-many)
+  - in hibernate, `CascadeType.PERSIST` is necessary to use orphanRemoval=true option
+
+
 
 ---
 

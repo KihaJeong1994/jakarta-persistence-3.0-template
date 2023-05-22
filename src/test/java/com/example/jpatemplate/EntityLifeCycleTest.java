@@ -17,10 +17,7 @@ public class EntityLifeCycleTest {
 
     @Test
     void managed_entity_sync_to_db_test(){
-        var address1 = new Address();
-        address1.setId(1L);
-        address1.setCountry("USA");
-        address1.setDetails("California");
+        var address1 = Address.builder().id(1L).country("USA").details("California").build();
         em.persist(address1);
         // persistence context is flushed to database -> insert query
         em.flush();
