@@ -42,4 +42,20 @@ public class UniDirectionalOneToOneTest {
         var addressFromContext = em.find(Address.class,1L);
         assertNull(addressFromContext);
     }
+
+    @Test
+    void when_orphanRemoval_is_true_then_remove_child_side_when_relation_has_changed_test(){
+        var customer1 = Customer.builder().id(1L).customerId("abcd").build();
+        var address1 = Address.builder().id(1L).country("America").details("California").build();
+        customer1.setAddress(address1);
+        em.persist(customer1);
+        var address2 = Address.builder().id(2L).country("America").details("California").build();
+        customer1.setAddress(address2);
+        em.persist(customer1);
+        em.flush(); // orphanRemoval is applied at the time of flush operation
+        em.clear();
+        var addressFromContext = em.find(Address.class,1L);
+        assertNull(addressFromContext);
+    }
+
 }
