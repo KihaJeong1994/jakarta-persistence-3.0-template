@@ -39,26 +39,27 @@ https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.h
 - Bidirectional : has both an owning side & inverse(non-owning) side
   - the inverse side of a bidirectional relationship must refer to its owning side by using `mappedBy` element
   - owning side : determines the updates to the relationship in the database
+  - Relationship Mapping Defaults is below
   - one-to-one
     - owning side : contains foreign key
     - inverse side : mappedBy
     - `orphanRemoval` option is possible
-  - one-to-many
-    - owning side : `Many` side must be owning side -> no mappedBy
-    - inverse side : `One`. mappedBy
-    - `orphanRemoval` option is possible
-  - many-to-one
-    - owning side : `Many` side must be owning side -> no mappedBy
+  - one-to-many / many-to-one
+    - owning side : `Many` side must be owning side -> no mappedBy. contains foreign key.
     - inverse side : `One`. mappedBy
     - *cascade=REMOVE* should not be applied
+    - `orphanRemoval` option is possible for one-to-many
   - many-to-many
     - there is a join table that is named A_B(owner name first) 
     - *cascade=REMOVE* should not be applied 
 - Unidirectional : has only an owning side
   - one-to-one
+    - owning side : contains foreign key
   - one-to-many
+    - owning side : `One` 
     - there is a join table that is named A_B(owner name first)
   - many-to-one
+    - owning side : contains foreign key
   - many-to-many
     - there is a join table that is named A_B(owner name first)
 - `cascade` : propagate the cascadable operation to the associated entity
