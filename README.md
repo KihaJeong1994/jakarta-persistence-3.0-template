@@ -4,6 +4,12 @@
 
 Jakarta Persistence API 3.0 template
 
+https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html#introduction
+
+Hibernate 6.2
+
+https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html#preface
+
 JPA
 - standard for management of **persistence** and **object/relational mapping**
 
@@ -38,7 +44,7 @@ https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.h
 
 - Bidirectional : has both an owning side & inverse(non-owning) side
   - the inverse side of a bidirectional relationship must refer to its owning side by using `mappedBy` element
-  - owning side : determines the updates to the relationship in the database
+  - owning side : <span style="background-color:#ffdce0">**determines the updates to the relationship in the database**</span>
   - Relationship Mapping Defaults is below
   - one-to-one
     - owning side : contains foreign key
@@ -52,6 +58,9 @@ https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.h
   - many-to-many
     - there is a join table that is named A_B(owner name first) 
     - *cascade=REMOVE* should not be applied 
+    - setting relationship on inverse side does not work!
+    - hibernate : when remove relationship, the whole relationship is removed and insert rest of relationship(delete all relationship & insert again) -> many-to-many with a link entity! 
+    >When an entity is removed from the @ManyToMany collection, Hibernate simply deletes the joining record in the link table. Unfortunately, this operation requires removing all entries associated with a given parent and recreating the ones that are listed in the current running persistent context.
 - Unidirectional : has only an owning side
   - one-to-one
     - owning side : contains foreign key
