@@ -1,9 +1,8 @@
 package com.example.jpatemplate.employee;
 
 import com.example.jpatemplate.project.Project;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import com.example.jpatemplate.projectMember.ProjectEmployee;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,11 +22,14 @@ public class Employee {
 
     private String name;
 
-    @ManyToMany(mappedBy = "employees")
-    private List<Project> projects;
+    @OneToMany(mappedBy = "employee",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<ProjectEmployee> projects;
 
     @Builder
-    public Employee(Long id, String name, List<Project> projects) {
+    public Employee(Long id, String name, List<ProjectEmployee> projects) {
         this.id = id;
         this.name = name;
         this.projects = projects!=null ? projects : new ArrayList<>();
