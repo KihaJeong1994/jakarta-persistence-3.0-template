@@ -138,6 +138,8 @@ List<Address> countries = em.createQuery("SELECT a FROM Address a WHERE a.countr
                 .getResultList();
 ```
 
+- Criteria API Interfaces(TODO)
+
 ---
 
 ## 3. Persistence Context
