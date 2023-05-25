@@ -1,4 +1,4 @@
-package com.example.jpatemplate;
+package com.example.jpatemplate.entity.relationship;
 
 import com.example.jpatemplate.employee.Employee;
 import com.example.jpatemplate.project.Project;

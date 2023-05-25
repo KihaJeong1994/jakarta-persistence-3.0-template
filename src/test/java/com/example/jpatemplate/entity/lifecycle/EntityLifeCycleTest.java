@@ -1,4 +1,4 @@
-package com.example.jpatemplate;
+package com.example.jpatemplate.entity.lifecycle;
 
 import com.example.jpatemplate.address.Address;
 import jakarta.persistence.EntityManager;

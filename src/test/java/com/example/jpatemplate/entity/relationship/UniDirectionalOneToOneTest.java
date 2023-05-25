@@ -1,4 +1,4 @@
-package com.example.jpatemplate;
+package com.example.jpatemplate.entity.relationship;
 
 import com.example.jpatemplate.address.Address;
 import com.example.jpatemplate.user.Customer;
