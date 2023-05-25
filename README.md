@@ -104,17 +104,39 @@ public void removeAccount(Account account){
 }
 ```
 
-
----
-
-## 2. EntityManager
-
 ### Entity Instance's life cycle
 
 - new : entity with no persistent identity. not yet associated with a persistence context
 - managed : entity with persistent identity & associated with a persistence context
 - detached : entity with persistent identity, but not associated with a persistence context
 - removed : entity with persistent identity & associated with a persistence context, but will be removed from the database upon transaction commit
+
+
+
+---
+
+## 2. EntityManager
+
+### Entity Manager
+- manage ***entity*** instances within the ***persistent context***
+  - create and remove persistent entity instances
+  - find persistent entities by primary key
+  - query over persistent entities
+
+### Query APIs
+- Query & TypedQuery APIs
+  - execute of both static and dynamic queries
+    - SELECT : getResultList(), getSingleResult()
+    - UPDATE, DELETE : executeUpdate()
+  - parameter binding : setParameter()
+  - pagination : setFirstResult(), setMaxResults()
+```java
+// SELECT * FROM Address WHERE country LIKE :country
+// the parameter of createQuery(qlString) must be a `Jakarta Persistence query string`
+List<Address> countries = em.createQuery("SELECT a FROM Address a WHERE a.country LIKE :country", Address.class)
+                .setParameter("country", country)
+                .getResultList();
+```
 
 ---
 
