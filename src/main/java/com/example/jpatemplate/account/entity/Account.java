@@ -1,7 +1,7 @@
-package com.example.jpatemplate.account;
+package com.example.jpatemplate.account.entity;
 
 
-import com.example.jpatemplate.user.Customer;
+import com.example.jpatemplate.customer.entity.Customer;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;

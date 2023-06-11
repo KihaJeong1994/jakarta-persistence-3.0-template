@@ -1,7 +1,6 @@
-package com.example.jpatemplate.employee;
+package com.example.jpatemplate.employee.entity;
 
-import com.example.jpatemplate.project.Project;
-import com.example.jpatemplate.projectMember.ProjectEmployee;
+import com.example.jpatemplate.projectEmployee.entity.ProjectEmployee;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;

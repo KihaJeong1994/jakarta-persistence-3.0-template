@@ -1,6 +1,6 @@
 package com.example.jpatemplate.entity.query;
 
-import com.example.jpatemplate.address.Address;
+import com.example.jpatemplate.address.entity.Address;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;

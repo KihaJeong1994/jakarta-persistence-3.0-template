@@ -1,7 +1,7 @@
-package com.example.jpatemplate.user;
+package com.example.jpatemplate.customer.entity;
 
-import com.example.jpatemplate.account.Account;
-import com.example.jpatemplate.address.Address;
+import com.example.jpatemplate.account.entity.Account;
+import com.example.jpatemplate.address.entity.Address;
 import jakarta.persistence.*;
 import lombok.*;
 

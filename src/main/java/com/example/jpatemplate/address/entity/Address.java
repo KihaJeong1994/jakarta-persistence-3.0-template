@@ -1,4 +1,4 @@
-package com.example.jpatemplate.address;
+package com.example.jpatemplate.address.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
