@@ -1,6 +1,7 @@
 package com.example.jpatemplate.domain.account.entity;
 
 
+import com.example.jpatemplate.domain.account.exception.NotEnoughBalanceException;
 import com.example.jpatemplate.domain.customer.entity.Customer;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -28,12 +29,19 @@ public class Account {
         this.customer = customer;
     }
 
+    public void decreaseBalance(double amount){
+        if(balance-amount<0){
+            throw new NotEnoughBalanceException("not enough balance");
+        }
+        balance -= amount;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
                 "id=" + id +
                 ", balance=" + balance +
-                ", customer=" + customer.getId() +
+                ", customer=" + (customer!=null?customer.getId():customer) +
                 '}';
     }
 }
