@@ -1,7 +1,7 @@
-package com.example.jpatemplate.projectEmployee.entity;
+package com.example.jpatemplate.domain.projectEmployee.entity;
 
-import com.example.jpatemplate.employee.entity.Employee;
-import com.example.jpatemplate.project.entity.Project;
+import com.example.jpatemplate.domain.employee.entity.Employee;
+import com.example.jpatemplate.domain.project.entity.Project;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;

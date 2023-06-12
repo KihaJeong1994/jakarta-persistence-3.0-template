@@ -1,6 +1,6 @@
 package com.example.jpatemplate.entity.lifecycle;
 
-import com.example.jpatemplate.address.entity.Address;
+import com.example.jpatemplate.domain.address.entity.Address;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.Test;

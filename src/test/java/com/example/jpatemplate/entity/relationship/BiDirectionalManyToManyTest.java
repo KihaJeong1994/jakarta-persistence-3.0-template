@@ -1,7 +1,7 @@
 package com.example.jpatemplate.entity.relationship;
 
-import com.example.jpatemplate.employee.entity.Employee;
-import com.example.jpatemplate.project.entity.Project;
+import com.example.jpatemplate.domain.employee.entity.Employee;
+import com.example.jpatemplate.domain.project.entity.Project;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.Test;
