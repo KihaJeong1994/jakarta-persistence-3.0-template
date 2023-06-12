@@ -1,5 +1,6 @@
 package com.example.jpatemplate.entity.relationship;
 
+import com.example.jpatemplate.common.jpa.annotation.RepositoryTest;
 import com.example.jpatemplate.domain.account.entity.Account;
 import com.example.jpatemplate.domain.customer.entity.Customer;
 import jakarta.persistence.EntityManager;
@@ -10,7 +11,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-@DataJpaTest
+@RepositoryTest
 public class BiDirectionalOneToManyAndManyToOneTest {
 
     @PersistenceContext

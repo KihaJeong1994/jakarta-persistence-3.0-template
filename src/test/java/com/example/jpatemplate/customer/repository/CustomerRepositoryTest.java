@@ -1,5 +1,6 @@
 package com.example.jpatemplate.customer.repository;
 
+import com.example.jpatemplate.common.jpa.annotation.RepositoryTest;
 import com.example.jpatemplate.common.jpa.querydsl.TestQueryDslConfig;
 import com.example.jpatemplate.domain.address.entity.Address;
 import com.example.jpatemplate.domain.customer.entity.Customer;
@@ -18,9 +19,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DataJpaTest //auto rollback
+//@DataJpaTest //auto rollback
 //@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // add if you want to use your own database config, not embedded one
-@Import(TestQueryDslConfig.class)
+//@Import(TestQueryDslConfig.class)
+@RepositoryTest
 class CustomerRepositoryTest {
 
     @Autowired

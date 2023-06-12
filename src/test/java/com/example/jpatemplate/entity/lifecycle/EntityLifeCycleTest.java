@@ -1,5 +1,6 @@
 package com.example.jpatemplate.entity.lifecycle;
 
+import com.example.jpatemplate.common.jpa.annotation.RepositoryTest;
 import com.example.jpatemplate.domain.address.entity.Address;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -9,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@DataJpaTest
+@RepositoryTest
 public class EntityLifeCycleTest {
 
     @PersistenceContext

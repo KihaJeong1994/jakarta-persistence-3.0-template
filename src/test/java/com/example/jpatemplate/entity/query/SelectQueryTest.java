@@ -1,5 +1,6 @@
 package com.example.jpatemplate.entity.query;
 
+import com.example.jpatemplate.common.jpa.annotation.RepositoryTest;
 import com.example.jpatemplate.domain.address.entity.Address;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -13,7 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DataJpaTest
+@RepositoryTest
 public class SelectQueryTest {
 
     @PersistenceContext
