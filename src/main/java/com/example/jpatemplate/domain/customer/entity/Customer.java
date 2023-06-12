@@ -1,5 +1,6 @@
 package com.example.jpatemplate.domain.customer.entity;
 
+import com.example.jpatemplate.common.jpa.entity.AbstractEntity;
 import com.example.jpatemplate.domain.account.entity.Account;
 import com.example.jpatemplate.domain.address.entity.Address;
 import jakarta.persistence.*;
@@ -12,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Customer {
+public class Customer extends AbstractEntity {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)

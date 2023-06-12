@@ -1,5 +1,6 @@
 package com.example.jpatemplate.domain.address.entity;
 
+import com.example.jpatemplate.common.jpa.entity.AbstractEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Address {
+public class Address extends AbstractEntity {
 
     @Id
     private Long id;
