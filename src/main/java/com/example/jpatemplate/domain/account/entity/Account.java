@@ -11,7 +11,6 @@ import lombok.*;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
 public class Account {
 
     @Id
@@ -20,6 +19,7 @@ public class Account {
     private Double balance;
 
     @ManyToOne
+    @Setter
     private Customer customer;
 
     @Builder
