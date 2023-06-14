@@ -21,7 +21,7 @@ a lightweight persistent domain object
 
 ```java
 @Entity
-@NoArgsConstructor // must have no-arg constructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // must have no-arg constructor for JPA, but protected is enough. use protected to avoid new ()
 @Getter
 @Setter
 public class User{

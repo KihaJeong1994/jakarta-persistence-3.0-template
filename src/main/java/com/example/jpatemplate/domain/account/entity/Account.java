@@ -9,7 +9,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 public class Account {
