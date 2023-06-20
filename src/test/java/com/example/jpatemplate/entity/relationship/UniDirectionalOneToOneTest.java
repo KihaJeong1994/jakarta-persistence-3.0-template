@@ -19,7 +19,7 @@ public class UniDirectionalOneToOneTest {
 
     @Test
     void when_cascade_persist_option_then_persist_inverse_side_when_persisting_owning_side_test(){
-        var customer1 = Customer.builder().id(1L).customerId("abcd").build();
+        var customer1 = Customer.builder().id(1L).customerId("abcd@gmail.com").build();
         var address1 = Address.builder().id(1L).country("America").details("California").build();
         customer1.setAddress(address1);
 //        em.persist(address1); // can undo this line of code by cascade option
@@ -33,7 +33,7 @@ public class UniDirectionalOneToOneTest {
 
     @Test
     void when_orphanRemoval_is_true_then_remove_child_side_when_removing_parent_side_test(){
-        var customer1 = Customer.builder().id(1L).customerId("abcd").build();
+        var customer1 = Customer.builder().id(1L).customerId("abcd@gmail.com").build();
         var address1 = Address.builder().id(1L).country("America").details("California").build();
         customer1.setAddress(address1);
         em.persist(customer1);
@@ -46,7 +46,7 @@ public class UniDirectionalOneToOneTest {
 
     @Test
     void when_orphanRemoval_is_true_then_remove_child_side_when_relation_has_changed_test(){
-        var customer1 = Customer.builder().id(1L).customerId("abcd").build();
+        var customer1 = Customer.builder().id(1L).customerId("abcd@gmail.com").build();
         var address1 = Address.builder().id(1L).country("America").details("California").build();
         customer1.setAddress(address1);
         em.persist(customer1);

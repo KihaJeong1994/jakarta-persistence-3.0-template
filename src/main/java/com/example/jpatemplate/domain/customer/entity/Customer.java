@@ -4,6 +4,7 @@ import com.example.jpatemplate.common.jpa.entity.AbstractEntity;
 import com.example.jpatemplate.domain.account.entity.Account;
 import com.example.jpatemplate.domain.address.entity.Address;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class Customer extends AbstractEntity {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Email // JPA validation works when flushed
     private String customerId;
 
     @OneToOne(cascade = CascadeType.PERSIST,orphanRemoval = true) // insert&remove address when insert&remove customer

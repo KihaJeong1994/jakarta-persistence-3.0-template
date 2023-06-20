@@ -5,6 +5,7 @@ import com.example.jpatemplate.common.jpa.querydsl.TestQueryDslConfig;
 import com.example.jpatemplate.domain.address.entity.Address;
 import com.example.jpatemplate.domain.customer.entity.Customer;
 import com.example.jpatemplate.domain.customer.repository.CustomerRepository;
+import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,5 +57,13 @@ class CustomerRepositoryTest {
         Pageable pageable = PageRequest.of(0,5);
         Page<Customer> customers = customerRepository.findByAddressCountryAndAddressDetails(country, details, pageable);
         assertEquals(2,customers.getContent().size());
+    }
+
+    @Test
+    void validation_test_customerId_should_be_email(){
+        Customer customer = Customer.builder().id(5L).customerId("notEmail")
+                .address(Address.builder().id(5L).country("Korea").details("Seoul").build())
+                .build();
+        assertThrows(ConstraintViolationException.class,()->customerRepository.saveAndFlush(customer)); // JPA validation works when flushed
     }
 }

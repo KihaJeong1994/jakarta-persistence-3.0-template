@@ -19,7 +19,7 @@ public class BiDirectionalOneToManyAndManyToOneTest {
 
     @Test
     void persist_test(){
-        var customer1 = Customer.builder().id(1L).customerId("abcd").build();
+        var customer1 = Customer.builder().id(1L).customerId("abcd@gmail.com").build();
         var account1 = Account.builder().id(1L).balance(2.0).build();
         var account2 = Account.builder().id(2L).balance(15.0).build();
         customer1.addAccount(account1);
@@ -39,7 +39,7 @@ public class BiDirectionalOneToManyAndManyToOneTest {
 
     @Test
     void when_orphanRemoval_is_true_then_remove_owner_side_when_removing_relationship_test(){
-        var customer1 = Customer.builder().id(1L).customerId("abcd").build();
+        var customer1 = Customer.builder().id(1L).customerId("abcd@gmail.com").build();
         var account1 = Account.builder().id(1L).balance(2.0).build();
         var account2 = Account.builder().id(2L).balance(15.0).build();
         customer1.addAccount(account1);
